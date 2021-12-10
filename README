@@ -1,0 +1,55 @@
+                                                            fmt
+
+                                            
+                                            FMT is a D Library replicating the Python
+                                            .format string function.
+
+                                            It takes a string called src, and a string
+                                            array called dest.
+
+                                            It formats src with dest's array.
+
+                                            If the input string is: "Hello {}" (src)
+                                            and the array is ["World"] (dest)
+
+                                            The return is "Hello World"
+
+                                            It uses a `lazy lexer' that parses the tok-
+                                            ens, This is not required by the D standard,
+                                            simply a side-project.
+
+                                            It does use bound checks to ensure that the
+                                            data it needs is available.
+
+                                            Postional variables are also considered "requests",
+                                            this helps manage them.
+
+                                            You can check which request needs fixing if you get
+                                            an error like this:
+
+                                            fmt: can't find definition for variable (request 4)
+
+                                            So if you have
+
+                                            "Hello {} {} {} {}"
+
+                                            But only give 3 definitions:
+
+                                            ["World", "Without", "Definitions:"]
+
+                                            The fourth walk is the error.
+
+                                            It's implementation is under 10 lines (about 4)
+                                            And it's in clean D, without any parsing libraries
+                                            OR regex.
+
+                                            It's similar to the Rust println! macro, al-
+                                            though differently implemented.
+                                            
+                                            It allows for complex formatting because it
+                                            handles tokens.
+                        import fmt;
+
+                        writeln(formatn("This {} is the greatest {} ever{}{}{}", ["Function", "thing", "!", "!", "!"])); 
+
+                                By default, it's modular name is "fmt", to prevent any naming disclosures (what?)
