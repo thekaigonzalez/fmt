@@ -16,3 +16,5 @@
 D = gdc
 tests:
 	$(D) src/test1.d src/fmt.d -o fmt-test
+error-msg:
+	$(D) error.d src/fmt.d -o error
